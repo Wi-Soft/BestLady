@@ -1,0 +1,116 @@
+{% load static %}
+
+<div class="product-page">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        Home / Skincare / Products
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <!-- IMAGE -->
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+            <!-- INFO -->
+            <h3>{{ product.name }}</h3>
+
+            <p class="price">KSh{{ product.price }}</p>
+
+            <p class="desc">
+                {{ product.description|truncatechars:80 }}
+            </p>
+
+            <p class="stock {% if product.stock > 0 %}in{% else %}out{% endif %}">
+                {% if product.stock > 0 %}In stock{% else %}Out of stock{% endif %}
+            </p>
+
+            <button class="cart-btn">Add to cart</button>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<style>
+    .product-page{
+    max-width: 1200px;
+    margin: auto;
+    font-family: Arial;
+    padding: 20px;
+}
+
+.breadcrumb{
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.product-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.product-card{
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.product-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-card h3{
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.price{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.desc{
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.stock.in{
+    color: green;
+    font-size: 13px;
+}
+
+.stock.out{
+    color: red;
+    font-size: 13px;
+}
+
+.cart-btn{
+    background: black;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+</style>
