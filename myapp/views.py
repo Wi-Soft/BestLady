@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Header, Product
 
 # Create your views here.
 
 def home(request):
     products = Product.objects.all()
-    return render(request, 'home.html', {'products': products})
+    header = Header.objects.all()  # Assuming you have a Header model
+    return render(request, 'home.html', {'products': products, 'header': header})
 
 
 
@@ -16,3 +17,6 @@ def product_list(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def header(request):
+    return render(request, 'header.html')
