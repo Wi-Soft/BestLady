@@ -29,10 +29,13 @@
         </div>
 
     </div>
+    
 
     {% endfor %}
 
 </div>
+    {% include "footer.html" %}
+
 
 
 <style>
@@ -42,6 +45,7 @@ body{
     background: #f6f6f6;
     margin: 0;
 }
+
 
 .container{
     max-width: 1000px;
@@ -54,7 +58,9 @@ body{
     margin-bottom: 30px;
     font-size: 32px;
     color: #161414;
-    background: #e7e4e4;
+    background: #f6f6f6;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 /* PRODUCT ROW CARD */

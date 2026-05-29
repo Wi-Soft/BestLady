@@ -13,6 +13,36 @@
     <p>This is the about page of our Django application.</p>
     <img src="{% static 'img/soft.jpeg' %}" alt="About Us">
 
+    {% include "footer.html" %}
+
 </body>
 </html>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background: #f6f6f6;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1{
+        text-align: center;
+        color: #161414;
+    }
+
+    p{
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+    }
+
+    img{
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>
 
