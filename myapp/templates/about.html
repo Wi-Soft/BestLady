@@ -1,6 +1,6 @@
 
 {% load static %}
-
+{% include "header.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +13,10 @@
     <p>This is the about page of our Django application.</p>
     <img src="{% static 'img/soft.jpeg' %}" alt="About Us">
 
-    {% include "footer.html" %}
 
 </body>
 </html>
-
+{% include "footer.html" %}
 <style>
     body{
         font-family: Arial, sans-serif;

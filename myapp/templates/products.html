@@ -1,4 +1,7 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% include "header.html" %}
 
 <div class="container">
 
@@ -8,138 +11,19 @@
 
     <div class="product-card">
 
-        <!-- LEFT IMAGE -->
         <div class="image-box">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
         </div>
 
-        <!-- RIGHT CONTENT -->
         <div class="content">
-
             <h3>{{ product.name }}</h3>
-
             <p class="price">KSh {{ product.price }}</p>
-
-            <p class="desc">
-                {{ product.description|truncatechars:120 }}
-            </p>
-
+            <p class="desc">{{ product.description|truncatechars:120 }}</p>
             <button>Add to Cart</button>
-
         </div>
 
     </div>
-    
 
     {% endfor %}
 
 </div>
-    {% include "footer.html" %}
-
-
-
-<style>
-
-body{
-    font-family: Arial, sans-serif;
-    background: #f6f6f6;
-    margin: 0;
-}
-
-
-.container{
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
-.title{
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 32px;
-    color: #161414;
-    background: #f6f6f6;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-/* PRODUCT ROW CARD */
-.product-card{
-    display: flex;
-    gap: 20px;
-    background: white;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    align-items: center;
-    transition: 0.3s;
-}
-
-.product-card:hover{
-    transform: translateY(-5px);
-}
-
-/* LEFT IMAGE */
-.image-box{
-    flex: 0 0 250px;
-}
-
-.image-box img{
-    width: 250px;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* RIGHT CONTENT */
-.content{
-    flex: 1;
-}
-
-.content h3{
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.price{
-    color: #e67e22;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.desc{
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-/* BUTTON */
-button{
-    padding: 10px 20px;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-button:hover{
-    background: #333;
-}
-
-/* MOBILE RESPONSIVE */
-@media(max-width: 600px){
-    .product-card{
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .image-box img{
-        width: 100%;
-        height: auto;
-    }
-}
-
-</style>

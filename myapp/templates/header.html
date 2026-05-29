@@ -1,53 +1,7 @@
-{% load static %}
-
-<DOCTYPEType html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
-</head>
-<body>
-    <menu>
-        <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'products' %}">Products</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-        </ul>
-
-  
-</body>
-</html>
-
-<style>
-    menu{
-        background: #f6f6f6;
-        padding: 10px 0;
-    }
-
-    menu ul{
-        background: #ee58c1;
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        height: 50px;
-        width: 40%;
-        margin: auto;
-    }
-
-    menu ul li{
-        margin: 0 15px;
-    }
-
-    menu ul li a{
-        color: #0f070e;
-        text-decoration: none;
-        font-size: 18px;
-    }
-
-    menu ul li a:hover{
-        text-decoration: underline;
-    }
-</style>
+<menu>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+    </ul>
+</menu>
