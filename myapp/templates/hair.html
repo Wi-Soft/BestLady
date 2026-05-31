@@ -5,20 +5,20 @@
 
 <div class="container">
 
-    <h1 class="title">Our Cosmetics</h1>
+    <h1 class="title">Our Hairs</h1>
 
-    {% for product in products %}
+    {% for hair in hairs %}
 
     <div class="product-card">
 
         <div class="image-box">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <img src="{{ hair.image.url }}" alt="{{ hair.name }}">
         </div>
 
         <div class="content">
-            <h3>{{ product.name }}</h3>
-            <p class="price">KSh {{ product.price }}</p>
-            <p class="desc">{{ product.description|truncatechars:120 }}</p>
+            <h3>{{ hair.name }}</h3>
+            <p class="price">KSh {{ hair.price }}</p>
+            <p class="desc">{{ hair.description|truncatechars:120 }}</p>
             <button>Add to Cart</button>
         </div>
 
@@ -30,5 +30,3 @@
 
 
 {% include "footer.html" %}
-
-

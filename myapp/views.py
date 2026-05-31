@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Header, Product
+from .models import Header, Product, Hair
+
 
 # Create your views here.
 
@@ -20,3 +21,7 @@ def about(request):
 
 def header(request):
     return render(request, 'header.html')
+
+def hair_list(request):
+    hairs = Hair.objects.all()
+    return render(request, 'hair.html', {'hairs': hairs})

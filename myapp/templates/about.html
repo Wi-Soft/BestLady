@@ -1,47 +1,82 @@
-
 {% load static %}
-{% include "header.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <h1>About Us</h1>
-    <p>This is the about page of our Django application.</p>
-    <img src="{% static 'img/soft.jpeg' %}" alt="About Us">
 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    {% include "header.html" %}
+
+    <div class="page-content">
+
+        <div class="about-container">
+
+            <h1>About BestLady</h1>
+
+            <p>
+                Welcome to BestLady, your trusted beauty and hair care store.
+                We specialize in high-quality products that help you look and feel your best every day.
+            </p>
+
+            <p>
+                From hair treatments to skincare essentials, we carefully select products that
+                deliver real results. Your beauty is our priority.
+            </p>
+
+            <p>
+                We are committed to providing affordable, authentic, and effective beauty solutions
+                across Kenya.
+            </p>
+
+        </div>
+
+    </div>
+
+    {% include "footer.html" %}
 
 </body>
 </html>
-{% include "footer.html" %}
-<style>
-    body{
-        font-family: Arial, sans-serif;
-        background: #f6f6f6;
-        margin: 0;
-        padding: 20px;
-    }
 
-    h1{
-        text-align: center;
-        color: #161414;
-    }
 
-    p{
-        text-align: center;
-        font-size: 18px;
-        color: #333;
-    }
 
-    img{
-        display: block;
-        margin: 20px auto;
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-</style>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
 
+        body {
+            display: flex;
+            flex-direction: column;
+            background: #f6f6f6;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-content {
+            flex: 1;
+            padding: 40px 20px;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .about-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .about-container p {
+            line-height: 1.7;
+            color: #444;
+        }
+    </style>
