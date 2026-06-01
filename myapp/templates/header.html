@@ -2,12 +2,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<menu>
-    <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'products' %}">Cosmetics</a></li>
-        <li><a href="{% url 'hairs' %}">Hairs</a></li>
-        <li><a href="{% url 'nails' %}">Nails</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-    </ul>
-</menu>
+<header>
+    <ddiv class="nav-bar">
+        <div class="logo">
+            <a href="{% url 'home' %}">BestLady</a>
+        </div>
+
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+
+        <nav id="mobile-menu">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'hairs' %}">Hairs</a></li>
+                <li><a href="{% url 'nails' %}">Nails</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+            </ul>
+        </nav>
+    </ddiv>
+</header>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("active");
+    }
+</script>
+
+
