@@ -21,8 +21,17 @@
     </div>
 </header>
 
+
+
 <script>
     function toggleMenu() {
         document.getElementById("mobile-menu").classList.toggle("nav-show");
     }
+
+    // close menu when any nav link is clicked
+    document.querySelectorAll("#mobile-menu a").forEach(function(link) {
+        link.addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.remove("nav-show");
+        });
+    });
 </script>
