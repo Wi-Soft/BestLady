@@ -1,15 +1,13 @@
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 <header>
-    <ddiv class="nav-bar">
+    <div class="nav-bar">
         <div class="logo">
             <a href="{% url 'home' %}">BestLady</a>
         </div>
 
         <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
 
+        <!-- nav sits AFTER button, drops to full row below on mobile -->
         <nav id="mobile-menu">
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -19,13 +17,12 @@
                 <li><a href="{% url 'about' %}">About Us</a></li>
             </ul>
         </nav>
-    </ddiv>
+    </div>
 </header>
+
 
 <script>
     function toggleMenu() {
-        document.getElementById("mobile-menu").classList.toggle("active");
+        document.getElementById("mobile-menu").classList.toggle("nav-show");
     }
 </script>
-
-

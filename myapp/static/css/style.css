@@ -120,18 +120,21 @@ button {
     width: 100%;
     background: #111;
     color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.3s;
 }
-
-button:hover {
+.product-card button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+    background: #111;
+    width: 100%;
+}
+.product-card button:hover {
     background: #f57c00;
 }
-
 
 /* Footer */
 footer {
@@ -168,11 +171,11 @@ footer {
 
 }
 
+
 /* header */
 header {
     background: #fff;
     border-bottom: 1px solid #addd;
-
 }
 .nav-bar {
     display: flex;
@@ -186,7 +189,6 @@ header {
     font-weight: bold;
     color: #111;
 }
-/* menu links (desktop) */
 nav ul {
     list-style: none;
     display: flex;
@@ -201,23 +203,9 @@ nav a {
 nav a:hover {
     color: #f57c00;
 }
-/* hamburger menu */
 .menu-toggle {
-   display: none;
-    width: auto !important;
-    background: none !important;
-    color: #000;
-    border: none;
-    font-size: 20px;
-    line-height: 1;
-    padding: 2px 4px;
-    cursor: pointer;
-}
-@media (max-width: 768px) {
-    .menu-toggle {
-    display: block;
-    width: auto !important;
-    background: none !important;
+    display: none;
+    background: none;
     color: #000;
     border: none;
     font-size: 20px;
@@ -225,28 +213,34 @@ nav a:hover {
     padding: 2px 4px;
     cursor: pointer;
     margin-left: auto;
-       
-    }
-.nav-bar {
-    padding: 8px 10px;
-    
-
 }
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-bar {
+        padding: 8px 10px;
+        flex-wrap: wrap;
+    }
     nav {
         display: none;
+            width: 100%;
     }
-
     nav ul {
         flex-direction: column;
         gap: 0;
+        align-items: center;
+        padding: 0;
+        margin: 0;
     }
     nav li {
         border-bottom: 1px solid #eee;
+        width: 100%;
+        text-align: center;
     }
     nav a {
         display: block;
         padding: 15px;
-
     }
 }
 .nav-show {
