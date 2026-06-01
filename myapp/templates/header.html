@@ -2,8 +2,11 @@
 <header>
     <div class="nav-bar">
         <div class="logo">
-            <a href="{% url 'home' %}">BestLady</a>
-        </div>
+    <a href="{% url 'home' %}">
+        <img src="{% static 'img/logo.svg' %}" alt="BestLady" height="75">
+    </a>
+</div>
+
 
         <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
 
