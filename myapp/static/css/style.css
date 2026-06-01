@@ -181,7 +181,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 8px 10px;
+    flex-wrap: nowrap;
 }
 .logo {
     text-decoration: none;
@@ -225,7 +226,13 @@ nav a:hover {
     }
     nav {
         display: none;
-            width: 100%;
+        width: 100%;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        background: #fff;
+        z-index: 999;
+        border: 1px solid #eee;
     }
     nav ul {
         flex-direction: column;
