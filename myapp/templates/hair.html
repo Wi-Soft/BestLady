@@ -1,33 +1,21 @@
+{% extends "base.html" %}
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-{% include "header.html" %}
-
+{% block title %}BestLady - Hairs{% endblock %}
+{% block content %}
 <div class="container">
-
     <h1 class="title">Our Hairs</h1>
-
     {% for hair in hairs %}
-
     <div class="product-card">
-
         <div class="image-box">
             <img src="{{ hair.image.url }}" alt="{{ hair.name }}">
         </div>
-
         <div class="content">
             <h3>{{ hair.name }}</h3>
             <p class="price">KSh {{ hair.price }}</p>
             <p class="desc">{{ hair.description|truncatechars:120 }}</p>
             <button>Add to Cart</button>
         </div>
-
     </div>
-
     {% endfor %}
-
 </div>
-
-
-{% include "footer.html" %}
+{% endblock %}

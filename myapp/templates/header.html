@@ -2,15 +2,13 @@
 <header>
     <div class="nav-bar">
         <div class="logo">
-    <a href="{% url 'home' %}">
-        <img src="{% static 'img/logo.svg' %}" alt="BestLady" height="75">
-    </a>
-</div>
-
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img/logo.svg' %}" alt="BestLady" height="55">
+            </a>
+        </div>
 
         <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
 
-        <!-- nav sits AFTER button, drops to full row below on mobile -->
         <nav id="mobile-menu">
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -22,7 +20,6 @@
         </nav>
     </div>
 </header>
-
 
 <script>
     function toggleMenu() {

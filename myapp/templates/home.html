@@ -1,43 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}BestLady - Home{% endblock %}
+{% block content %}
 
- {% load static %}
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BestLady</title>
-   
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <style>
-        html, body{
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        body{
-            display: flex;
-            flex-direction: column;
-            background: #f6f6f6;
-        }
-
-        .page-content{
-            flex: 1;
-        }
-    </style>
-</head>
-
-<body>
-
-
-    <div class="page-content">
-        {% include "products.html" %}
+<!-- Cosmetics Section -->
+<div class="container">
+    <h1 class="title">Our Cosmetics</h1>
+    {% for product in products %}
+    <div class="product-card">
+        <div class="image-box">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="content">
+            <h3>{{ product.name }}</h3>
+            <p class="price">KSh {{ product.price }}</p>
+            <p class="desc">{{ product.description|truncatechars:120 }}</p>
+            <button>Add to Cart</button>
+        </div>
     </div>
+    {% endfor %}
+</div>
 
-  
-</body>
-</html>
+<!-- Hairs Section -->
+<div class="container">
+    <h1 class="title">Our Hairs</h1>
+    {% for hair in hairs %}
+    <div class="product-card">
+        <div class="image-box">
+            <img src="{{ hair.image.url }}" alt="{{ hair.name }}">
+        </div>
+        <div class="content">
+            <h3>{{ hair.name }}</h3>
+            <p class="price">KSh {{ hair.price }}</p>
+            <p class="desc">{{ hair.description|truncatechars:120 }}</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Nails Section -->
+<div class="container">
+    <h1 class="title">Our Nails</h1>
+    {% for nail in nails %}
+    <div class="product-card">
+        <div class="image-box">
+            <img src="{{ nail.image.url }}" alt="{{ nail.name }}">
+        </div>
+        <div class="content">
+            <h3>{{ nail.name }}</h3>
+            <p class="price">KSh {{ nail.price }}</p>
+            <p class="desc">{{ nail.description|truncatechars:120 }}</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- about Section-->
+ <div class="about-container">
+    <h1>About BestLady</h1>
+    <p>Welcome to BestLady, your trusted beauty and hair care store.
+    We specialize in high-quality products that help you look and feel your best every day.</p>
+    <p>From hair treatments to skincare essentials, we carefully select products that
+    deliver real results. Your beauty is our priority.</p>
+    <p>We are committed to providing affordable, authentic, and effective beauty solutions
+    across Kenya.</p>
+</div>
+ 
+
+{% endblock %}

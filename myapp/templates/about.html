@@ -1,82 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-
-    {% include "header.html" %}
-
-    <div class="page-content">
-
-        <div class="about-container">
-
-            <h1>About BestLady</h1>
-
-            <p>
-                Welcome to BestLady, your trusted beauty and hair care store.
-                We specialize in high-quality products that help you look and feel your best every day.
-            </p>
-
-            <p>
-                From hair treatments to skincare essentials, we carefully select products that
-                deliver real results. Your beauty is our priority.
-            </p>
-
-            <p>
-                We are committed to providing affordable, authentic, and effective beauty solutions
-                across Kenya.
-            </p>
-
-        </div>
-
-    </div>
-
-    {% include "footer.html" %}
-
-</body>
-</html>
-
-
-
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            background: #f6f6f6;
-            font-family: Arial, sans-serif;
-        }
-
-        .page-content {
-            flex: 1;
-            padding: 40px 20px;
-        }
-
-        .about-container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .about-container h1 {
-            margin-bottom: 20px;
-        }
-
-        .about-container p {
-            line-height: 1.7;
-            color: #444;
-        }
-    </style>
+{% extends "base.html" %}
+{% block title %}BestLady - About{% endblock %}
+{% block content %}
+<div class="about-container">
+    <h1>About BestLady</h1>
+    <p>Welcome to BestLady, your trusted beauty and hair care store.
+    We specialize in high-quality products that help you look and feel your best every day.</p>
+    <p>From hair treatments to skincare essentials, we carefully select products that
+    deliver real results. Your beauty is our priority.</p>
+    <p>We are committed to providing affordable, authentic, and effective beauty solutions
+    across Kenya.</p>
+</div>
+{% endblock %}

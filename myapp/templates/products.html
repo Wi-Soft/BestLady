@@ -1,35 +1,23 @@
+{% extends "base.html" %}
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-{% include "header.html" %}
-
+{% block title %}
+{% endblock %}
+{% block content %}
 <div class="container">
-
     <h1 class="title">Our Cosmetics</h1>
-
     {% for product in products %}
-
     <div class="product-card">
-
         <div class="image-box">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
         </div>
-
         <div class="content">
             <h3>{{ product.name }}</h3>
             <p class="price">KSh {{ product.price }}</p>
             <p class="desc">{{ product.description|truncatechars:120 }}</p>
             <button>Add to Cart</button>
         </div>
-
     </div>
-
     {% endfor %}
-
 </div>
-
-
-{% include "footer.html" %}
-
+{% endblock %}
 

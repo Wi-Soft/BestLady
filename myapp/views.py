@@ -6,9 +6,9 @@ from .models import Header, Product, Hair, Nail
 
 def home(request):
     products = Product.objects.all()
-    header = Header.objects.all()  # Assuming you have a Header model
-    return render(request, 'home.html', {'products': products, 'header': header})
-
+    hairs = Hair.objects.all()
+    nails = Nail.objects.all()
+    return render(request, 'home.html', {'products': products, 'hairs': hairs, 'nails': nails})
 
 
 def product_list(request):

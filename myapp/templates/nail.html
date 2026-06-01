@@ -1,31 +1,21 @@
-<DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-{% include "header.html" %}
+{% block title %}BestLady - Nails{% endblock %}
+{% block content %}
 <div class="container">
-
     <h1 class="title">Our Nails</h1>
-
     {% for nail in nails %}
-
     <div class="product-card">
-
         <div class="image-box">
             <img src="{{ nail.image.url }}" alt="{{ nail.name }}">
         </div>
-
         <div class="content">
             <h3>{{ nail.name }}</h3>
             <p class="price">KSh {{ nail.price }}</p>
             <p class="desc">{{ nail.description|truncatechars:120 }}</p>
             <button>Add to Cart</button>
         </div>
-
     </div>
-
     {% endfor %}
-    </div>
-{% include "footer.html" %}
+</div>
+{% endblock %}
