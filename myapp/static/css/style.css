@@ -103,7 +103,7 @@ menu a:hover {
 }
 
 .price {
-    color: #f57c00;
+    color: #dd7f13;
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
@@ -215,7 +215,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #C9A227;
+    color: #c92727;
 }
 
 /* Hamburger button */
@@ -226,7 +226,7 @@ nav a:hover {
     font-size: 26px;
     cursor: pointer;
     color: #4A2C8F;
-    padding: 4px 8px;
+    padding: 4px 12px;
     line-height: 1;
 }
 
@@ -261,13 +261,14 @@ nav a:hover {
 
     nav li {
         border-bottom: 1px solid #eee;
-        width: 100%;
+        width: fit-content;
         text-align: center;
+        margin: 0 auto;
     }
 
     nav a {
         display: block;
-        padding: 15px;
+        padding: 10px 30px;
         color: #4A2C8F;
         font-weight: bold;
     }
