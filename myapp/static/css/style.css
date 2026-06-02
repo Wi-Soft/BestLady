@@ -117,15 +117,20 @@ menu a:hover {
 
 /* Product button only */
 .product-card button {
-    width: 100%;
     background: #111;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 8px 24px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     transition: 0.3s;
+
+}
+.product-card .button-group {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
 }
 
 .product-card button:hover {
