@@ -14,7 +14,10 @@
             <h3>{{ nail.name }}</h3>
             <p class="price">KSh {{ nail.price }}</p>
             <p class="desc">{{ nail.description|truncatechars:120 }}</p>
-            <button>Add to Cart</button>
+            <div class="button-group">
+                <button class="btn-cart">Add to Cart</button>
+                <button class="btn-buy">Buy Now</button>
+            </div>
         </div>
     </div>
     {% endfor %}

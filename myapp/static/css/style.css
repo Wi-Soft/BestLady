@@ -103,7 +103,7 @@ menu a:hover {
 }
 
 .price {
-    color: #dd7f13;
+    color: #dd5110;
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
@@ -116,25 +116,28 @@ menu a:hover {
 }
 
 /* Product button only */
-.product-card button {
-    background: #111;
-    color: white;
-    border: none;
-    padding: 8px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.3s;
-
-}
 .product-card .button-group {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
+    flex-wrap: row;
+    margin-top: 10px;
 }
-
-.product-card button:hover {
+.product-card .button-group button {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.product-card .button-group .btn-cart:hover {
     background: #4A2C8F;
+}
+.product-card .button-group .btn-buy:hover {
+    background: #dd5110;
 }
 
 /* Footer */

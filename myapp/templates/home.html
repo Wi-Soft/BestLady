@@ -15,7 +15,10 @@
             <h3>{{ product.name }}</h3>
             <p class="price">KSh {{ product.price }}</p>
             <p class="desc">{{ product.description|truncatechars:120 }}</p>
-            <button>Add to Cart</button>
+            <div class="button-group">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -33,7 +36,10 @@
             <h3>{{ hair.name }}</h3>
             <p class="price">KSh {{ hair.price }}</p>
             <p class="desc">{{ hair.description|truncatechars:120 }}</p>
-            <button>Add to Cart</button>
+            <div class="button-group">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+            </div>
         </div>
     </div>
     {% endfor %}
@@ -51,7 +57,10 @@
             <h3>{{ nail.name }}</h3>
             <p class="price">KSh {{ nail.price }}</p>
             <p class="desc">{{ nail.description|truncatechars:120 }}</p>
-            <button>Add to Cart</button>
+            <div class="button-group">
+                <button>Add to Cart</button>
+                <button>Buy Now</button>
+            </div>
         </div>
     </div>
     {% endfor %}
