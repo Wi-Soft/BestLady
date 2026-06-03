@@ -29,3 +29,7 @@ def hair_list(request):
 def nail_list(request):
     nails = Nail.objects.all()
     return render(request, 'nail.html', {'nails': nails})
+
+
+def buy(request):
+    return render(request, 'buy.html')
