@@ -27,11 +27,9 @@
             <h2>Buy Now</h2>
             <p>{{ product.name }} — KSh {{ product.price }}</p>
 
-            <input type="email" placeholder="Email Address" style="width:80%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
-
-            <input type="tel" placeholder="Phone Number" style="width:80%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
-
-            <input type="number" value="{{ product.price }}" readonly style="width:80%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; background:#f5f5f5; cursor:not-allowed;">
+            <input type="email" placeholder="Email Address" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
+            <input type="tel" placeholder="Phone Number" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;">
+            <input type="number" value="{{ product.price }}" readonly style="width:100%; padding:10px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box; background:#f5f5f5; cursor:not-allowed;">
 
 
             <div style="display:flex; gap:8px; justify-content:center;">
@@ -44,4 +42,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-

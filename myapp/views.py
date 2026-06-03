@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Header, Product, Hair, Nail
 
 
+
 # Create your views here.
 
 def home(request):
@@ -10,11 +11,9 @@ def home(request):
     nails = Nail.objects.all()
     return render(request, 'home.html', {'products': products, 'hairs': hairs, 'nails': nails})
 
-
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products})
-
 
 def about(request):
     return render(request, 'about.html')
@@ -29,7 +28,6 @@ def hair_list(request):
 def nail_list(request):
     nails = Nail.objects.all()
     return render(request, 'nail.html', {'nails': nails})
-
 
 def buy(request):
     return render(request, 'buy.html')

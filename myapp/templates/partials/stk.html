@@ -1,0 +1,38 @@
+<script>
+function sendSTK(productId, amount) {
+    const phone = document.getElementById('phone-' + productId).value.trim();
+    const email = document.getElementById('email-' + productId).value.trim();
+    const msg = document.getElementById('msg-' + productId);
+
+    if (!phone) {
+        msg.style.color = 'red';
+        msg.textContent = 'Please enter your phone number.';
+        return;
+    }
+
+    msg.style.color = 'green';
+    msg.textContent = 'Sending payment request...';
+
+    fetch('/mpesa/stk/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ phone, amount, email, product_id: productId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            msg.textContent = '✅ STK Push sent! Check your phone.';
+        } else {
+            msg.style.color = 'red';
+            msg.textContent = data.error || 'Payment failed. Try again.';
+        }
+    })
+    .catch(() => {
+        msg.style.color = 'red';
+        msg.textContent = 'Network error. Try again.';
+    });
+}
+</script>
