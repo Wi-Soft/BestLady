@@ -31,3 +31,6 @@ def nail_list(request):
 
 def buy(request):
     return render(request, 'buy.html')
+
+def data_structure(request):
+    return render(request, 'data_structure.html')
