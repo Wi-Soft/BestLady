@@ -309,3 +309,42 @@ nav a:hover {
     line-height: 1.7;
     color: #444;
 }
+
+
+/* data_structure */
+
+.container-dsa {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.container-dsa h1 {
+    color: #4A2C8F;
+    border-bottom: 2px solid #4A2C8F;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.container-dsa h2 {
+    color: #dd5110;
+    margin-top: 30px;
+}
+
+.container-dsa h4 {
+    color: #333;
+    margin-top: 15px;
+}
+
+.container-dsa p {
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.container-dsa strong {
+    color: #4A2C8F;
+}
