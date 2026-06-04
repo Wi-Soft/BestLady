@@ -21,16 +21,22 @@ def about(request):
 def header(request):
     return render(request, 'header.html')
 
-def hair_list(request):
-    hairs = Hair.objects.all()
-    return render(request, 'hair.html', {'hairs': hairs})
+def database(request):
+    return render(request, 'database.html')
 
-def nail_list(request):
-    nails = Nail.objects.all()
-    return render(request, 'nail.html', {'nails': nails})
 
 def buy(request):
     return render(request, 'buy.html')
 
 def data_structure(request):
     return render(request, 'data_structure.html')
+
+
+# views.py
+def services(request):
+    hairs = Hair.objects.all()
+    nails = Nail.objects.all()
+    return render(request, 'services.html', {
+        'hairs': hairs,
+        'nails': nails
+    })
