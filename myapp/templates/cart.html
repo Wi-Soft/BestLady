@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cart | BestLady{% endblock %}
+
+{% block content %}
+<section class="cart-page">
+    <div class="section-heading">
+        <h1>Your Cart</h1>
+        <a href="{% url 'products' %}">Continue shopping</a>
+    </div>
+
+    {% if cart_entries %}
+    <div class="cart-layout">
+        <div class="cart-items">
+            {% for entry in cart_entries %}
+            <article class="cart-item">
+                <div class="cart-item__image">
+                    <img src="{{ entry.item.image.url }}" alt="{{ entry.item.name }}">
+                </div>
+                <div class="cart-item__details">
+                    <p class="cart-item__label">{{ entry.label }}</p>
+                    <h2>{{ entry.item.name }}</h2>
+                    <p>KSh {{ entry.item.price }} each</p>
+                </div>
+                <form class="cart-item__quantity" action="{% url 'cart_update' entry.item_type entry.item.id %}" method="post">
+                    {% csrf_token %}
+                    <label for="quantity-{{ forloop.counter }}">Qty</label>
+                    <input id="quantity-{{ forloop.counter }}" type="number" name="quantity" value="{{ entry.quantity }}" min="0" max="99">
+                    <button type="submit">Update</button>
+                </form>
+                <div class="cart-item__total">
+                    <strong>KSh {{ entry.subtotal }}</strong>
+                    <form action="{% url 'cart_remove' entry.item_type entry.item.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Remove</button>
+                    </form>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <aside class="cart-summary">
+            <h2>Order Summary</h2>
+            <div>
+                <span>Subtotal</span>
+                <strong>KSh {{ cart_total }}</strong>
+            </div>
+            <p>Checkout payment confirmation can be completed from the Buy Now flow.</p>
+            <a class="btn-primary" href="{% url 'products' %}">Shop more products</a>
+            <form action="{% url 'cart_clear' %}" method="post">
+                {% csrf_token %}
+                <button class="btn-secondary" type="submit">Clear cart</button>
+            </form>
+        </aside>
+    </div>
+    {% else %}
+    <div class="empty-cart">
+        <h2>Your cart is empty</h2>
+        <p>Add cosmetics, hair, or nail items and they will appear here.</p>
+        <a class="btn-primary" href="{% url 'products' %}">Browse products</a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

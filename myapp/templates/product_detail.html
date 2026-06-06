@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ product.name }} | BestLady{% endblock %}
+
+{% block content %}
+<div class="product-detail-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="{% url 'home' %}">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="{% url 'products' %}">Products</a>
+        <span aria-hidden="true">/</span>
+        <span>{{ product.name }}</span>
+    </nav>
+
+    <section class="product-detail">
+        <div class="product-detail__media">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+
+        <div class="product-detail__summary">
+            <p class="product-detail__eyebrow">Cosmetics</p>
+            <h1>{{ product.name }}</h1>
+            <p class="product-detail__price">KSh {{ product.price }}</p>
+            <p class="product-detail__intro">{{ product.description|truncatechars:220 }}</p>
+
+            <div class="product-detail__actions" aria-label="Product actions">
+                <form class="product-detail__cart-form" action="{% url 'cart_add' 'product' product.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <label for="quantity-{{ product.id }}">Qty</label>
+                    <input id="quantity-{{ product.id }}" type="number" name="quantity" value="1" min="1" max="99">
+                    <button class="btn-secondary" type="submit">Add to cart</button>
+                </form>
+                <button class="btn-primary" type="button" onclick="document.getElementById('product-buy-modal').style.display='flex'">Buy now</button>
+                <a class="btn-secondary" href="{% url 'products' %}">Back to products</a>
+            </div>
+
+            <dl class="product-detail__meta">
+                <div>
+                    <dt>Availability</dt>
+                    <dd>In stock</dd>
+                </div>
+                <div>
+                    <dt>Pickup</dt>
+                    <dd>Available after confirmation</dd>
+                </div>
+                <div>
+                    <dt>Support</dt>
+                    <dd>Call or message for product guidance</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <section class="product-info">
+        <div>
+            <h2>Product Details</h2>
+            <p>{{ product.description }}</p>
+        </div>
+        <aside class="product-info__panel">
+            <h2>Why Shop With Us</h2>
+            <ul>
+                <li>Quality checked beauty products</li>
+                <li>Clear pricing before checkout</li>
+                <li>Fast confirmation after payment</li>
+            </ul>
+        </aside>
+    </section>
+
+    {% if related_products %}
+    <section class="related-products">
+        <div class="section-heading">
+            <h2>You May Also Like</h2>
+            <a href="{% url 'products' %}">View all</a>
+        </div>
+        <div class="related-products__grid">
+            {% for related in related_products %}
+            <article class="related-product">
+                <a href="{% url 'product_detail' related.id %}" aria-label="View {{ related.name }}">
+                    <img src="{{ related.image.url }}" alt="{{ related.name }}">
+                    <h3>{{ related.name }}</h3>
+                    <p>KSh {{ related.price }}</p>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</div>
+
+<div id="product-buy-modal" class="purchase-modal" role="dialog" aria-modal="true" aria-labelledby="purchase-title">
+    <div class="purchase-modal__content">
+        <h2 id="purchase-title">Buy Now</h2>
+        <p>{{ product.name }} - KSh {{ product.price }}</p>
+
+        <label>
+            <span>Email Address</span>
+            <input type="email" placeholder="you@example.com">
+        </label>
+        <label>
+            <span>Phone Number</span>
+            <input type="tel" placeholder="07XXXXXXXX">
+        </label>
+        <label>
+            <span>Amount</span>
+            <input type="number" value="{{ product.price }}" readonly>
+        </label>
+
+        <div class="purchase-modal__actions">
+            <button class="btn-secondary" type="button" onclick="document.getElementById('product-buy-modal').style.display='none'">Cancel</button>
+            <button class="btn-primary" type="button">Pay now</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

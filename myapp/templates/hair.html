@@ -14,7 +14,11 @@
             <p class="price">KSh {{ hair.price }}</p>
             <p class="desc">{{ hair.description|truncatechars:120 }}</p>
             <div class="button-group">
-               <button class="btn-cart">Add to Cart</button>
+                <form action="{% url 'cart_add' 'hair' hair.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button class="btn-cart" type="submit">Add to Cart</button>
+                </form>
                 <button class="btn-buy" onclick="document.getElementById('modal-{{ hair.id }}').style.display='flex'">Buy Now</button>
             </div>
         </div>

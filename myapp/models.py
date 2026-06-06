@@ -36,3 +36,9 @@ class Nail(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+
+    from django.db import models
+

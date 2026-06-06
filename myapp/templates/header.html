@@ -7,14 +7,15 @@
             </a>
         </div>
 
-        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMenu(this)">&#9776;</button>
 
         <nav id="mobile-menu">
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'products' %}">Products</a></li>
-                <li><a href="{% url 'services' %}">Services</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'products' %}" class="{% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'product_detail' %}active{% endif %}">Products</a></li>
+                <li><a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
+                <li><a href="{% url 'cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">Cart{% if cart_count %} ({{ cart_count }}){% endif %}</a></li>
+                <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About Us</a></li>
             </ul>
         </nav>
     </div>
@@ -23,14 +24,16 @@
 
 
 <script>
-    function toggleMenu() {
-        document.getElementById("mobile-menu").classList.toggle("nav-show");
+    function toggleMenu(button) {
+        const menu = document.getElementById("mobile-menu");
+        const isOpen = menu.classList.toggle("nav-show");
+        button.setAttribute("aria-expanded", isOpen ? "true" : "false");
     }
 
-    // close menu when any nav link is clicked
     document.querySelectorAll("#mobile-menu a").forEach(function(link) {
         link.addEventListener("click", function() {
             document.getElementById("mobile-menu").classList.remove("nav-show");
+            document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
         });
     });
 </script>

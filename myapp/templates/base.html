@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}BestLady{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
 
     {% include "header.html" %}
 
-    <div class="page-content">
+    <main class="page-content">
         {% block content %}{% endblock %}
-    </div>
+    </main>
 
     {% include "footer.html" %}
 
     {% block scripts %}{% endblock %}
-
-
 </body>
 </html>

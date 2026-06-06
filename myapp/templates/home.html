@@ -8,16 +8,21 @@
     <h1 class="title">Our Cosmetics</h1>
     {% for product in products %}
     <div class="product-card">
-        <div class="image-box">
+        <a class="image-box" href="{% url 'product_detail' product.id %}" aria-label="View {{ product.name }}">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        </div>
+        </a>
         <div class="content">
-            <h3>{{ product.name }}</h3>
+            <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
             <p class="price">KSh {{ product.price }}</p>
             <p class="desc">{{ product.description|truncatechars:120 }}</p>
             <div class="button-group">
-                <button>Add to Cart</button>
-                <button>Buy Now</button>
+                <a class="btn-details" href="{% url 'product_detail' product.id %}">View Details</a>
+                <form action="{% url 'cart_add' 'product' product.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button class="btn-cart" type="submit">Add to Cart</button>
+                </form>
+                <a class="btn-buy" href="{% url 'product_detail' product.id %}">Buy Now</a>
             </div>
         </div>
     </div>
@@ -37,7 +42,11 @@
             <p class="price">KSh {{ hair.price }}</p>
             <p class="desc">{{ hair.description|truncatechars:120 }}</p>
             <div class="button-group">
-                <button>Add to Cart</button>
+                <form action="{% url 'cart_add' 'hair' hair.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button class="btn-cart" type="submit">Add to Cart</button>
+                </form>
                 <button>Buy Now</button>
             </div>
         </div>
@@ -58,7 +67,11 @@
             <p class="price">KSh {{ nail.price }}</p>
             <p class="desc">{{ nail.description|truncatechars:120 }}</p>
             <div class="button-group">
-                <button>Add to Cart</button>
+                <form action="{% url 'cart_add' 'nail' nail.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button class="btn-cart" type="submit">Add to Cart</button>
+                </form>
                 <button>Buy Now</button>
             </div>
         </div>
