@@ -1,11 +1,13 @@
-- [x] Update `myapp/tests.py` with Django unit tests for routes in `myapp/urls.py`.
+# TODO
 
-- [x] Use `SimpleUploadedFile` to create valid `ImageField` data for `Product`, `Hair`, and `Nail`.
+## Plan for “add hair and nail details”
 
-- [x] Assert HTTP 200 responses and expected context contents for `home`, `products`, and `services` views.
+1. Add DB fields to `Hair` and `Nail` models for richer details (care + what’s included). ✅
+2. Create Django migrations for those model changes. ✅
+3. Update `myapp/templates/hair.html` and `myapp/templates/nail.html` to render the new detail fields in labeled sections. ✅
+4. Update any unit tests if they rely on model fields / image uploads.
+5. Run `python manage.py test` to verify the test suite passes.
 
-- [x] Add smoke tests (HTTP 200) for `about`, `header`, `database`, and `data_structure`.
 
-- [x] Run `python manage.py test` to verify the test suite passes.
 
 

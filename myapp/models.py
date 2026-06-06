@@ -25,17 +25,31 @@ class Hair(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='img/')
 
+    # Hair-specific details
+    details_title = models.CharField(max_length=120, blank=True, default="")
+    included = models.TextField(blank=True, default="")
+    aftercare = models.TextField(blank=True, default="")
+    notes = models.TextField(blank=True, default="")
+
     def __str__(self):
         return self.name
-    
+
+
 class Nail(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
     description = models.TextField()
     image = models.ImageField(upload_to='img/')
 
+    # Nail-specific details
+    details_title = models.CharField(max_length=120, blank=True, default="")
+    included = models.TextField(blank=True, default="")
+    aftercare = models.TextField(blank=True, default="")
+    notes = models.TextField(blank=True, default="")
+
     def __str__(self):
         return self.name
+
     
 
 

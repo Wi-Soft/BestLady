@@ -72,6 +72,34 @@ menu a:hover {
     transform: translateY(-3px);
 }
 
+/* Details (hair/nails) */
+.details-block {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 10px 0 0;
+}
+
+.details-title {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #222;
+}
+
+.details-label {
+    margin: 10px 0 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.details-text {
+    margin: 0;
+    color: #666;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
 /* Image */
 .image-box {
     width: 100%;

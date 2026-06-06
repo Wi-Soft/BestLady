@@ -13,6 +13,27 @@
             <h3>{{ nail.name }}</h3>
             <p class="price">KSh {{ nail.price }}</p>
             <p class="desc">{{ nail.description|truncatechars:120 }}</p>
+            <div class="details-block">
+                {% if nail.details_title %}
+                    <h4 class="details-title">{{ nail.details_title }}</h4>
+                {% endif %}
+
+                {% if nail.included %}
+                    <p class="details-label"><strong>What’s included:</strong></p>
+                    <p class="details-text">{{ nail.included }}</p>
+                {% endif %}
+
+                {% if nail.aftercare %}
+                    <p class="details-label"><strong>Aftercare:</strong></p>
+                    <p class="details-text">{{ nail.aftercare }}</p>
+                {% endif %}
+
+                {% if nail.notes %}
+                    <p class="details-label"><strong>Notes:</strong></p>
+                    <p class="details-text">{{ nail.notes }}</p>
+                {% endif %}
+            </div>
+
             <div class="button-group">
                 <form action="{% url 'cart_add' 'nail' nail.id %}" method="post">
                     {% csrf_token %}

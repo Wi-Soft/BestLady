@@ -13,6 +13,27 @@
             <h3>{{ hair.name }}</h3>
             <p class="price">KSh {{ hair.price }}</p>
             <p class="desc">{{ hair.description|truncatechars:120 }}</p>
+            <div class="details-block">
+                {% if hair.details_title %}
+                    <h4 class="details-title">{{ hair.details_title }}</h4>
+                {% endif %}
+
+                {% if hair.included %}
+                    <p class="details-label"><strong>What’s included:</strong></p>
+                    <p class="details-text">{{ hair.included }}</p>
+                {% endif %}
+
+                {% if hair.aftercare %}
+                    <p class="details-label"><strong>Aftercare:</strong></p>
+                    <p class="details-text">{{ hair.aftercare }}</p>
+                {% endif %}
+
+                {% if hair.notes %}
+                    <p class="details-label"><strong>Notes:</strong></p>
+                    <p class="details-text">{{ hair.notes }}</p>
+                {% endif %}
+            </div>
+
             <div class="button-group">
                 <form action="{% url 'cart_add' 'hair' hair.id %}" method="post">
                     {% csrf_token %}

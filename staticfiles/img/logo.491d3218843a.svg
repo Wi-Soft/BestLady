@@ -1,0 +1,18 @@
+<svg width="100%" viewBox="0 0 680 100" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">BestLady small logo</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Compact BestLady logo with hexagon B mark and wordmark side by side, no underline</desc>
+
+  
+
+  <g transform="translate(210, 15)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <!-- hexagon icon -->
+    <polygon points="30,0 54,0 66,21 54,42 30,42 18,21" fill="#4A2C8F" style="fill:rgb(74, 44, 143);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <polygon points="42,7 56,21 42,35 28,21" fill="#C9A227" style="fill:rgb(201, 162, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <text x="42" y="22" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#fff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:22px;font-weight:700;text-anchor:middle;dominant-baseline:middle">B</text>
+
+    <!-- wordmark -->
+    <text x="80" y="22" font-size="26" fill="#4A2C8F" letter-spacing="3" style="fill:rgb(74, 44, 143);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Montserrat, Arial, sans-serif;font-size:26px;font-weight:700;text-anchor:start;dominant-baseline:auto">BESTLADY</text>
+    <!-- tagline -->
+    <text x="81" y="38" font-size="10" fill="#7B5EA7" letter-spacing="2" style="fill:rgb(123, 94, 167);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Montserrat, Arial, sans-serif;font-size:10px;font-weight:700;text-anchor:start;dominant-baseline:auto">COSMETICS &amp; BEAUTY</text>
+  </g>
+</svg>
