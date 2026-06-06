@@ -1,13 +1,13 @@
 # TODO
 
-## Plan for “add hair and nail details”
-
-1. Add DB fields to `Hair` and `Nail` models for richer details (care + what’s included). ✅
-2. Create Django migrations for those model changes. ✅
-3. Update `myapp/templates/hair.html` and `myapp/templates/nail.html` to render the new detail fields in labeled sections. ✅
-4. Update any unit tests if they rely on model fields / image uploads.
-5. Run `python manage.py test` to verify the test suite passes.
-
+## Services CSS fix
+- [x] Inspect templates for services page (`services.html`, `hair.html`, `nail.html`) and shared layout (`base.html`, `header.html`).
+- [x] Inspect current CSS (`staticfiles/css/style.css`) and identify selector mismatches.
+- [x] Update CSS to match actual navigation markup:
+  - [x] Add/adjust `header`, `.nav-bar`, `#mobile-menu ul`, `#mobile-menu a` styling.
+  - [x] Add mobile toggle behavior for `#mobile-menu.nav-show`.
+  - [x] Keep existing styling for services cards.
+- [x] Check Services page “Add to cart” and “Buy now” flows are independent of the CSS change.
 
 
 

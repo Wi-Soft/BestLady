@@ -2,7 +2,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.urls import reverse
 
-from .models import Hair, Nail, Product
+from .models import Item
+
 
 
 
@@ -26,38 +27,44 @@ class ViewTests(TestCase):
             content_type="image/jpeg",
         )
 
-        self.product1 = Product.objects.create(
+        self.product1 = Item.objects.create(
+            category="cosmetic",
             name="Product 1",
             price=10,
             description="Desc 1",
             image=self.image,
         )
-        self.product2 = Product.objects.create(
+        self.product2 = Item.objects.create(
+            category="cosmetic",
             name="Product 2",
             price=20,
             description="Desc 2",
             image=self.image,
         )
 
-        self.hair1 = Hair.objects.create(
+        self.hair1 = Item.objects.create(
+            category="hair",
             name="Hair 1",
             price=5,
             description="Hair Desc 1",
             image=self.image,
         )
 
-        self.nail1 = Nail.objects.create(
+        self.nail1 = Item.objects.create(
+            category="nails",
             name="Nail 1",
             price=7,
             description="Nail Desc 1",
             image=self.image,
         )
-        self.nail2 = Nail.objects.create(
+        self.nail2 = Item.objects.create(
+            category="nails",
             name="Nail 2",
             price=9,
             description="Nail Desc 2",
             image=self.image,
         )
+
 
     def test_home_renders_and_context_counts(self):
         url = reverse("home")
@@ -104,15 +111,17 @@ class ViewTests(TestCase):
 
     def test_add_product_to_cart(self):
         resp = self.client.post(
-            reverse("cart_add", args=["product", self.product1.id]),
+            reverse("cart_add", args=["cosmetic", self.product1.id]),
             {"quantity": 2},
         )
         self.assertRedirects(resp, reverse("cart_detail"))
-        self.assertEqual(self.client.session["cart"][f"product:{self.product1.id}"], 2)
+        self.assertEqual(self.client.session["cart"][f"cosmetic:{self.product1.id}"], 2)
+
 
     def test_cart_supports_hair_and_nail_items(self):
         self.client.post(reverse("cart_add", args=["hair", self.hair1.id]))
-        self.client.post(reverse("cart_add", args=["nail", self.nail1.id]))
+        self.client.post(reverse("cart_add", args=["nails", self.nail1.id]))
+
 
         resp = self.client.get(reverse("cart_detail"))
         self.assertEqual(resp.status_code, 200)
@@ -120,14 +129,16 @@ class ViewTests(TestCase):
         self.assertEqual(len(resp.context["cart_entries"]), 2)
 
     def test_update_and_remove_cart_item(self):
-        self.client.post(reverse("cart_add", args=["product", self.product1.id]))
+        self.client.post(reverse("cart_add", args=["cosmetic", self.product1.id]))
+
 
         self.client.post(
-            reverse("cart_update", args=["product", self.product1.id]),
+            reverse("cart_update", args=["cosmetic", self.product1.id]),
             {"quantity": 3},
         )
-        self.assertEqual(self.client.session["cart"][f"product:{self.product1.id}"], 3)
+        self.assertEqual(self.client.session["cart"][f"cosmetic:{self.product1.id}"], 3)
 
-        self.client.post(reverse("cart_remove", args=["product", self.product1.id]))
-        self.assertNotIn(f"product:{self.product1.id}", self.client.session["cart"])
+        self.client.post(reverse("cart_remove", args=["cosmetic", self.product1.id]))
+        self.assertNotIn(f"cosmetic:{self.product1.id}", self.client.session["cart"])
+
 

@@ -2,20 +2,15 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
-from .models import Header, Product, Hair, Nail
+from .models import Header, Item
 
-
-CATALOG_MODELS = {
-    'product': Product,
-    'hair': Hair,
-    'nail': Nail,
-}
 
 CATALOG_LABELS = {
-    'product': 'Cosmetics',
+    'cosmetic': 'Cosmetics',
     'hair': 'Hair',
-    'nail': 'Nails',
+    'nails': 'Nails',
 }
+
 
 
 def _get_cart(request):
@@ -23,10 +18,11 @@ def _get_cart(request):
 
 
 def _get_catalog_item(item_type, pk):
-    model = CATALOG_MODELS.get(item_type)
-    if model is None:
+    # item_type is now the category
+    if item_type not in CATALOG_LABELS:
         raise Http404("Catalog item type not found")
-    return get_object_or_404(model, pk=pk)
+    return get_object_or_404(Item, pk=pk, category=item_type)
+
 
 
 def _cart_key(item_type, pk):
@@ -47,12 +43,12 @@ def _cart_entries(request):
     for key, quantity in cart.items():
         try:
             item_type, raw_pk = key.split(':', 1)
-            model = CATALOG_MODELS[item_type]
-            item = model.objects.get(pk=raw_pk)
             quantity = max(1, int(quantity))
-        except (KeyError, ValueError, ObjectDoesNotExist):
+            item = Item.objects.get(pk=raw_pk, category=item_type)
+        except (ValueError, ObjectDoesNotExist):
             invalid_keys.append(key)
             continue
+
 
         subtotal = item.price * quantity
         total += subtotal
@@ -76,22 +72,25 @@ def _cart_entries(request):
 # Create your views here.
 
 def home(request):
-    products = Product.objects.all()
-    hairs = Hair.objects.all()
-    nails = Nail.objects.all()
+    products = Item.objects.filter(category='cosmetic')
+    hairs = Item.objects.filter(category='hair')
+    nails = Item.objects.filter(category='nails')
     return render(request, 'home.html', {'products': products, 'hairs': hairs, 'nails': nails})
 
+
 def product_list(request):
-    products = Product.objects.all()
+    products = Item.objects.filter(category='cosmetic')
     return render(request, 'products.html', {'products': products})
 
+
 def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    related_products = Product.objects.exclude(pk=product.pk)[:3]
+    product = get_object_or_404(Item, pk=pk, category='cosmetic')
+    related_products = Item.objects.filter(category='cosmetic').exclude(pk=product.pk)[:3]
     return render(request, 'product_detail.html', {
         'product': product,
         'related_products': related_products,
     })
+
 
 def about(request):
     return render(request, 'about.html')
@@ -171,9 +170,10 @@ def cart_clear(request):
 
 # views.py
 def services(request):
-    hairs = Hair.objects.all()
-    nails = Nail.objects.all()
+    hairs = Item.objects.filter(category='hair')
+    nails = Item.objects.filter(category='nails')
     return render(request, 'services.html', {
         'hairs': hairs,
         'nails': nails
     })
+
