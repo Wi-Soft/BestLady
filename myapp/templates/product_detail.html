@@ -25,7 +25,7 @@
             <p class="product-detail__intro">{{ product.description|truncatechars:220 }}</p>
 
             <div class="product-detail__actions" aria-label="Product actions">
-                <form class="product-detail__cart-form" action="{% url 'cart_add' 'product' product.id %}" method="post">
+                <form class="product-detail__cart-form" action="{% url 'cart_add' 'cosmetic' product.id %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.get_full_path }}">
                     <label for="quantity-{{ product.id }}">Qty</label>

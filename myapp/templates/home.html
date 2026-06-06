@@ -33,24 +33,7 @@
 <div class="container">
     <h1 class="title">Our Hairs</h1>
     {% for hair in hairs %}
-    <div class="product-card">
-        <div class="image-box">
-            <img src="{{ hair.image.url }}" alt="{{ hair.name }}">
-        </div>
-        <div class="content">
-            <h3>{{ hair.name }}</h3>
-            <p class="price">KSh {{ hair.price }}</p>
-            <p class="desc">{{ hair.description|truncatechars:120 }}</p>
-            <div class="button-group">
-                <form action="{% url 'cart_add' 'hair' hair.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                    <button class="btn-cart" type="submit">Add to Cart</button>
-                </form>
-                <a class="btn-buy" href="{% url 'services' %}" role="button">Buy Now</a>
-            </div>
-        </div>
-    </div>
+        {% include "_services_item_card.html" with item=hair item_type="hair" %}
     {% endfor %}
 </div>
 
@@ -58,24 +41,7 @@
 <div class="container">
     <h1 class="title">Our Nails</h1>
     {% for nail in nails %}
-    <div class="product-card">
-        <div class="image-box">
-            <img src="{{ nail.image.url }}" alt="{{ nail.name }}">
-        </div>
-        <div class="content">
-            <h3>{{ nail.name }}</h3>
-            <p class="price">KSh {{ nail.price }}</p>
-            <p class="desc">{{ nail.description|truncatechars:120 }}</p>
-            <div class="button-group">
-                <form action="{% url 'cart_add' 'nail' nail.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                    <button class="btn-cart" type="submit">Add to Cart</button>
-                </form>
-                <a class="btn-buy" href="{% url 'services' %}" role="button">Buy Now</a>
-            </div>
-        </div>
-    </div>
+        {% include "_services_item_card.html" with item=nail item_type="nails" %}
     {% endfor %}
 </div>
 

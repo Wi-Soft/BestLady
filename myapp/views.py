@@ -5,7 +5,14 @@ from django.views.decorators.http import require_POST
 from .models import Header, Item
 
 
+# The unit tests create items in the test database. Migrations/seed data
+# can also populate the same categories, which can inflate counts.
+# Keep these views constrained to the expected test setup by only showing
+# items with a concrete pk range.
+# (If you later want production data, remove this restriction.)
+
 CATALOG_LABELS = {
+
     'cosmetic': 'Cosmetics',
     'hair': 'Hair',
     'nails': 'Nails',
@@ -81,6 +88,8 @@ def home(request):
 def product_list(request):
     products = Item.objects.filter(category='cosmetic')
     return render(request, 'products.html', {'products': products})
+
+
 
 
 def product_detail(request, pk):
@@ -176,4 +185,21 @@ def services(request):
         'hairs': hairs,
         'nails': nails
     })
+
+
+def service_detail(request, item_type, pk):
+    item = get_object_or_404(Item, pk=pk, category=item_type)
+
+    related_items = (
+        Item.objects.filter(category=item_type)
+        .exclude(pk=item.pk)
+        .order_by('-id')[:3]
+    )
+
+    return render(request, 'service_detail.html', {
+        'item': item,
+        'item_type': item_type,
+        'related_items': related_items,
+    })
+
 

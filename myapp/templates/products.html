@@ -16,7 +16,7 @@
             <p class="desc">{{ product.description|truncatechars:120 }}</p>
             <div class="button-group">
                 <a class="btn-details" href="{% url 'product_detail' product.id %}">View Details</a>
-                <form action="{% url 'cart_add' 'product' product.id %}" method="post">
+                <form action="{% url 'cart_add' 'cosmetic' product.id %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.get_full_path }}">
                     <button class="btn-cart" type="submit">Add to Cart</button>
