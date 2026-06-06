@@ -1,12 +1,11 @@
 from django.db import migrations
 
 
-def seed_items(apps, schema_editor):
+def seed_more_items(apps, schema_editor):
     Item = apps.get_model('myapp', 'Item')
 
-    # Idempotent seeding: only create items that don't already exist by (category, name).
+    # Idempotent: only create items missing by (category, name)
     existing = set(Item.objects.values_list('category', 'name'))
-
 
     img1 = 'img/1.jpg'
     img2 = 'img/2.jpg'
@@ -15,21 +14,7 @@ def seed_items(apps, schema_editor):
     img5 = 'img/lemme-play.webp'
 
     items = [
-        # Cosmetics
-        {
-            'category': 'cosmetic',
-            'name': 'Cosmetic Starter Pack',
-            'price': 2500,
-            'description': 'A curated starter pack of your favorite cosmetics.',
-            'image': img1,
-        },
-        {
-            'category': 'cosmetic',
-            'name': 'Glow Up Serum',
-            'price': 3200,
-            'description': 'Nourishing serum for a fresh and glowing finish.',
-            'image': img2,
-        },
+        # Cosmetics (additional)
         {
             'category': 'cosmetic',
             'name': 'Soft Matte Lip Kit',
@@ -52,18 +37,7 @@ def seed_items(apps, schema_editor):
             'image': img3,
         },
 
-        # Hair
-        {
-            'category': 'hair',
-            'name': 'Hair Treatment Session',
-            'price': 4500,
-            'description': 'Deep conditioning + finishing for healthy hair.',
-            'image': img4,
-            'details_title': 'What you get',
-            'included': 'Deep conditioning • styling • consultation',
-            'aftercare': 'Hydrate daily, use gentle products.',
-            'notes': 'Best for dry and damaged hair.',
-        },
+        # Hair (additional)
         {
             'category': 'hair',
             'name': 'Repair & Restore Mask',
@@ -98,29 +72,7 @@ def seed_items(apps, schema_editor):
             'notes': 'Perfect for maintaining growth.',
         },
 
-        # Nails
-        {
-            'category': 'nails',
-            'name': 'Manicure & Polish',
-            'price': 1800,
-            'description': 'Clean manicure with long-lasting polish.',
-            'image': img5,
-            'details_title': 'Includes',
-            'included': 'Cuticle care • shaping • polish',
-            'aftercare': 'Wear gloves for cleaning, moisturize often.',
-            'notes': 'Custom colors available.',
-        },
-        {
-            'category': 'nails',
-            'name': 'Gel Nails Set',
-            'price': 2800,
-            'description': 'A durable gel set for a clean and glossy look.',
-            'image': img3,
-            'details_title': 'Includes',
-            'included': 'Gel application • shaping • finish',
-            'aftercare': 'Avoid scraping, moisturize regularly.',
-            'notes': 'Removal available on request.',
-        },
+        # Nails (additional)
         {
             'category': 'nails',
             'name': 'Nail Art Accent Session',
@@ -145,8 +97,6 @@ def seed_items(apps, schema_editor):
         },
     ]
 
-
-    # Create rows (skip duplicates by category+name)
     for data in items:
         key = (data['category'], data['name'])
         if key in existing:
@@ -154,13 +104,12 @@ def seed_items(apps, schema_editor):
         Item.objects.create(**data)
 
 
-
 class Migration(migrations.Migration):
     dependencies = [
-        ('myapp', '0008_item_delete_hair_delete_nail_delete_product'),
+        ('myapp', '0009_seed_items'),
     ]
 
     operations = [
-        migrations.RunPython(seed_items, reverse_code=migrations.RunPython.noop),
+        migrations.RunPython(seed_more_items, reverse_code=migrations.RunPython.noop),
     ]
 

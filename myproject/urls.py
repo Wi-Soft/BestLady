@@ -21,7 +21,16 @@ from django.conf.urls.static import static
 
 
 
+from django.http import HttpResponse
+
+
+def admin_test(request):
+    return HttpResponse("Django routing OK: /admin-test/")
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin-test/', admin_test, name='admin_test'),
     path('', include('myapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
