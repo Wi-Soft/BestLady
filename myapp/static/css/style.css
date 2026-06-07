@@ -62,14 +62,14 @@ header {
     width: 88px;
     height: 88px;
     border-radius: 50%;
-    background: #8b4513;
+    background: #fcf8f5;
     transition: background-color 0.3s, transform 0.3s;
     text-decoration: none;
     flex-shrink: 0;
 }
 
 .cart-icon:hover {
-    background: #a0522d;
+    background: #dd5110;
     transform: translateY(-3px);
 }
 
@@ -130,7 +130,7 @@ header {
 
 #mobile-menu a:hover,
 #mobile-menu a.active {
-    color: #4A2C8F;
+    color: #dd5110;
 }
 
 /* Mobile Menu */
@@ -214,7 +214,7 @@ menu a {
 }
 
 menu a:hover {
-    color: #C9A227;
+    color: #dd5110;
 }
 
 /* Products Page */
@@ -1033,7 +1033,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #c92727;
+    color: #dd5110;
 }
 
 /* Hamburger button */
@@ -1097,7 +1097,7 @@ nav a.active {
     nav a:hover,
     nav a.active {
         background: #f5f0ff;
-        color: #C9A227;
+        color: #dd5110;
     }
 }
 
