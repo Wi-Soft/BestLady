@@ -12,6 +12,9 @@
         {# Right-side cart icon #}
         <a class="cart-icon" href="{% url 'cart_detail' %}" aria-label="View cart">
             <img src="{% static 'img/add-to-cart.png' %}" alt="Cart" width="56" height="56">
+            {% if cart_count %}
+                <span class="cart-badge">{{ cart_count }}</span>
+            {% endif %}
         </a>
 
         <nav id="mobile-menu">
