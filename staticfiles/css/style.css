@@ -1,8 +1,4 @@
 html,
-body {
-    height: 100%;
-    margin: 0;
-}
 
 body {
     min-height: 100vh;
@@ -10,6 +6,8 @@ body {
     flex-direction: column;
     font-family: Arial, sans-serif;
     background: #f8f8f8;
+    height: 100%;
+    margin: 0;
 }
 
 .page-content {
@@ -27,9 +25,10 @@ header {
 }
 
 .nav-bar {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 20px 20px;
+    min-height: 84px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -156,11 +155,11 @@ header {
 
     .nav-bar {
         flex-wrap: wrap;
-    }
-
-    /* restore normal flow and remove extra right padding on mobile */
-    .nav-bar {
-        padding-right: 20px;
+        width: min(100%, 740px);
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
     }
 
     .cart-icon {
@@ -172,6 +171,9 @@ header {
     #mobile-menu {
         order: 4;
         width: 100%;
+        max-width: 740px;
+        margin: 0 auto;
+        box-sizing: border-box;
         flex-direction: column;
         gap: 15px;
         display: none;
@@ -999,7 +1001,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px;
+    padding: 16px 20px;
+    min-height: 72px;
     flex-wrap: nowrap;
 }
 
