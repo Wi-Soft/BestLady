@@ -47,7 +47,7 @@ header {
 }
 
 .logo img {
-    max-height: 55px;
+    max-height: 44px;
     width: auto;
     display: block;
     /* Restore logo styling to default color */
@@ -1024,9 +1024,7 @@ header {
 
 .logo img {
     display: block;
-    height: 55px;
-    width: auto;
-}
+        height: 44px;
 
 /* Desktop nav */
 nav {
