@@ -16,6 +16,180 @@ body {
     flex: 1;
 }
 
+/* Header */
+header {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    padding-right: 110px; /* space for absolute-positioned cart */
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 55px;
+    width: auto;
+    display: block;
+    /* Restore logo styling to default color */
+    filter: none;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: #8b4513;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.cart-icon:hover {
+    background: #a0522d;
+    transform: translateY(-3px);
+}
+
+.cart-icon img {
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+
+@media (min-width: 769px) {
+    /* position the cart in the right corner on larger screens */
+    .cart-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #222;
+    padding: 0;
+    line-height: 1;
+}
+
+#mobile-menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 30px;
+}
+
+#mobile-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-menu li {
+    margin: 0;
+}
+
+#mobile-menu a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+#mobile-menu a:hover,
+#mobile-menu a.active {
+    color: #4A2C8F;
+}
+
+/* Mobile Menu */
+.nav-show {
+    display: flex !important;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        flex: 1;
+        text-align: center;
+    }
+
+    .cart-icon {
+        order: 3;
+    }
+
+    .nav-bar {
+        flex-wrap: wrap;
+    }
+
+    /* restore normal flow and remove extra right padding on mobile */
+    .nav-bar {
+        padding-right: 20px;
+    }
+
+    .cart-icon {
+        position: static;
+        width: 64px;
+        height: 64px;
+    }
+
+    #mobile-menu {
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        display: none;
+        padding-top: 15px;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 15px;
+    }
+
+    #mobile-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #mobile-menu a {
+        font-size: 14px;
+    }
+}
+
 /* Navigation */
 menu {
     background: #f5f5f5;
@@ -151,6 +325,18 @@ menu a:hover {
     text-decoration: none;
     line-height: 1.2;
 }
+
+.btn-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cart::before {
+    content: "";
+    display: none;
+}
+
 .product-card .button-group .btn-cart:hover {
     background: #4A2C8F;
 }
@@ -521,13 +707,13 @@ menu a:hover {
     background: #fafafa;
     border-radius: 8px;
     display: flex;
-    height: 96px;
+    height: 120px;
     justify-content: center;
 }
 
 .cart-item__image img {
-    max-height: 76px;
-    max-width: 76px;
+    max-height: 100px;
+    max-width: 100px;
     object-fit: contain;
 }
 
@@ -857,7 +1043,7 @@ nav a.active {
     border: none;
     font-size: 32px;
     cursor: pointer;
-    color: #4A2C8F;
+    color: 6;
     padding: 4px 6px;
     line-height: 1;
     width: 38px;
@@ -892,6 +1078,7 @@ nav a.active {
         padding: 0;
         margin: 0;
     }
+   
 
     nav li {
         border-bottom: 1px solid #eee;
@@ -970,6 +1157,7 @@ nav a.active {
     color: #dd5110;
     margin-top: 30px;
 }
+
 
 .container-dsa h4 {
     color: #333;

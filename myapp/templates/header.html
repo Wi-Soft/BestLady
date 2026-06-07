@@ -1,20 +1,24 @@
 {% load static %}
 <header>
     <div class="nav-bar">
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMenu(this)">&#9776;</button>
+
         <div class="logo">
             <a href="{% url 'home' %}">
                 <img src="{% static 'img/logo.svg' %}" alt="BestLady" height="55">
             </a>
         </div>
 
-        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMenu(this)">&#9776;</button>
+        {# Right-side cart icon #}
+        <a class="cart-icon" href="{% url 'cart_detail' %}" aria-label="View cart">
+            <img src="{% static 'img/add-to-cart.png' %}" alt="Cart" width="56" height="56">
+        </a>
 
         <nav id="mobile-menu">
             <ul>
                 <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
                 <li><a href="{% url 'products' %}" class="{% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'product_detail' %}active{% endif %}">Products</a></li>
                 <li><a href="{% url 'services' %}" class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
-                <li><a href="{% url 'cart_detail' %}" class="{% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}">Cart{% if cart_count %} ({{ cart_count }}){% endif %}</a></li>
                 <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About Us</a></li>
             </ul>
         </nav>
@@ -37,3 +41,4 @@
         });
     });
 </script>
+

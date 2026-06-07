@@ -5,7 +5,7 @@ Expected context:
 - item_type: string 'hair' or 'nails'
 {% endcomment %}
 <div class="product-card">
-    <a class="image-box" href="{% url 'services' %}" aria-label="View {{ item.name }}">
+    <a class="image-box" href="{% url 'service_detail' item_type item.id %}" aria-label="View {{ item.name }}">
         <img src="{{ item.image.url }}" alt="{{ item.name }}">
     </a>
     <div class="content">
