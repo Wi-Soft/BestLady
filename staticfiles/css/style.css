@@ -155,23 +155,23 @@ header {
 
     .nav-bar {
         flex-wrap: wrap;
-        width: min(100%, 740px);
-        max-width: 740px;
+        width: 100%;
+        max-width: 680px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 16px;
         box-sizing: border-box;
     }
 
     .cart-icon {
         position: static;
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
     }
 
     #mobile-menu {
         order: 4;
         width: 100%;
-        max-width: 740px;
+        max-width: 680px;
         margin: 0 auto;
         box-sizing: border-box;
         flex-direction: column;
@@ -189,6 +189,22 @@ header {
 
     #mobile-menu a {
         font-size: 14px;
+        display: block;
+        width: 100%;
+        padding: 12px 10px;
+    }
+
+    .container {
+        max-width: 680px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    main.page-content {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 0;
     }
 }
 
