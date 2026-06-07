@@ -93,6 +93,15 @@ header {
     line-height: 1;
 }
 
+@media (min-width: 769px) {
+    .cart-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
 #mobile-menu {
     display: flex;
     margin: 0;
