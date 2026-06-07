@@ -18,7 +18,7 @@ body {
 header {
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -50,27 +50,19 @@ header {
     max-height: 55px;
     width: auto;
     display: block;
-    /* Restore logo styling to default color */
-    filter: none;
+    filter: none !important;
+    opacity: 1 !important;
 }
 
 .cart-icon {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: #fcf8f5;
-    transition: background-color 0.3s, transform 0.3s;
+    background: transparent;
+    transition: transform 0.3s;
     text-decoration: none;
     flex-shrink: 0;
     position: relative;
-}
-
-.cart-icon:hover {
-    background: #dd5110;
-    transform: translateY(-3px);
 }
 
 .cart-badge {
@@ -84,39 +76,18 @@ header {
     height: 24px;
     padding: 0 8px;
     border-radius: 999px;
-    background: #222;
+    background: #000;
     color: #fff;
     font-size: 12px;
     font-weight: 800;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .cart-icon img {
     width: 56px;
     height: 56px;
     display: block;
-}
-
-@media (min-width: 769px) {
-    /* position the cart in the right corner on larger screens */
-    .cart-icon {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .cart-icon:hover {
-        transform: translateY(calc(-50% - 3px));
-    }
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+    filter: brightness(0) saturate(100%);
     color: #222;
     padding: 0;
     line-height: 1;
@@ -1032,7 +1003,7 @@ footer {
 /* Header */
 header {
     background: #fff;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e5e5e5;
     position: relative;
 }
 
@@ -1067,7 +1038,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #222;
     font-weight: bold;
     font-size: 15px;
 }
