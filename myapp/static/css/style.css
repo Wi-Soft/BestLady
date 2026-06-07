@@ -87,8 +87,8 @@ header {
     width: 56px;
     height: 56px;
     display: block;
-    filter: brightness(0) saturate(100%);
-    color: #222;
+    filter: none !important;
+    opacity: 1 !important;
     padding: 0;
     line-height: 1;
 }

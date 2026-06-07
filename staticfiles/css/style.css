@@ -76,6 +76,8 @@ header {
     width: 56px;
     height: 56px;
     display: block;
+    filter: none !important;
+    opacity: 1 !important;
 }
 
 @media (min-width: 769px) {
